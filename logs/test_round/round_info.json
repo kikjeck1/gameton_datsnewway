@@ -1,0 +1,8 @@
+{
+  "name": "test_round",
+  "status": "active",
+  "startAt": "2024-01-01T00:00:00Z",
+  "endAt": "2024-01-01T01:00:00Z",
+  "duration": 3600,
+  "repeat": 1
+}
