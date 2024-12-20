@@ -1,94 +1,66 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Tuple
 
 @dataclass
-class Vector2D:
+class Vector3D:
     x: float
     y: float
+    z: float
 
 @dataclass
-class Transport:
-    id: str
+class Food:
     x: float
     y: float
-    health: int
-    status: str
-    velocity: Vector2D
-    anomalyAcceleration: Vector2D
-    selfAcceleration: Vector2D
-    attackCooldownMs: int
-    shieldCooldownMs: int
-    shieldLeftMs: int
-    deathCount: int
-
-@dataclass
-class Enemy:
-    x: float
-    y: float
-    health: int
-    status: str
-    velocity: Vector2D
-    shieldLeftMs: int
-    killBounty: int
-
-@dataclass
-class Anomaly:
-    id: str
-    x: float
-    y: float
-    radius: float
-    effectiveRadius: float
-    strength: float
-    velocity: Vector2D
-
-@dataclass
-class Bounty:
-    x: float
-    y: float
-    radius: float
+    z: float
     points: int
+
+@dataclass
+class SpecialFood:
+    x: float
+    y: float
+    z: float
+
+@dataclass
+class Snake:
+    id: str
+    direction: Vector3D
+    oldDirection: Vector3D
+    geometry: List[Vector3D]  # First element is head
+    deathCount: int
+    status: str  # 'dead' or 'alive'
+    reviveRemainMs: int
+
+@dataclass
+class EnemySnake:
+    geometry: List[Vector3D]  # First element is head
+    status: str  # 'dead' or 'alive'
+    kills: int
 
 @dataclass
 class GameState:
-    name: str
+    name: str  # team name
     points: int
-    mapSize: Vector2D
-    transportRadius: float
-    maxSpeed: float
-    maxAccel: float
-    attackRange: float
-    attackDamage: float
-    attackExplosionRadius: float
-    attackCooldownMs: int
-    shieldTimeMs: int
-    shieldCooldownMs: int
-    reviveTimeoutSec: int
-    transports: List[Transport]
-    enemies: List[Enemy]
-    wantedList: List[Enemy]
-    anomalies: List[Anomaly]
-    bounties: List[Bounty]
-
-@dataclass
-class Round:
-    name: str
-    status: str
-    startAt: str
-    endAt: str
-    duration: int
-    repeat: int
+    mapSize: Vector3D
+    fences: List[Vector3D]  # obstacle coordinates
+    snakes: List[Snake]  # player's snakes
+    enemies: List[EnemySnake]
+    food: List[Food]  # regular food (mandarins)
+    specialFood: List[SpecialFood]  # special food coordinates
+    turn: int  # current turn number
+    tickRemainMs: int  # time remaining for current turn
+    reviveTimeoutSec: int  # constant time for snake revival
+    errors: List[str]
 
 @dataclass
 class GameInfo:
     gameName: str
     now: str
-    rounds: List[Round]
+    turn: int
 
     @classmethod
     def from_dict(cls, data: dict):
-        rounds = [Round(**round_data) for round_data in data['rounds']]
         return cls(
             gameName=data['gameName'],
             now=data['now'],
-            rounds=rounds
+            turn=data['turn']
         )
