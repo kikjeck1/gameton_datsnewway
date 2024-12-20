@@ -6,8 +6,9 @@ import requests
 import json
 from source.data_objects import Vector3D, Snake, EnemySnake, Food, SpecialFood, GameState
 from source.logger import GameLogger
-
-from source.mover import get_next_state
+import time
+# from source.mover import get_next
+from source.mover import get_next_state_from_game_state
 
 token = '5bcfb855-b4bc-4f27-a1ed-acee9e238b79'
 
@@ -93,17 +94,55 @@ class GameClient:
         
         return game_state
     
+    
+    def read_turn_json(self, turn_number: int) -> dict:
+        """Read JSON response data from a specific turn's log file
+        
+        Args:
+            turn_number: The turn number to read data from
+            
+        Returns:
+            dict: The JSON data from the response file
+        """
+        round_name = 2
+        log_path = Path(f"/Users/eaveselkov/shad/DatsNewWay/gameton_datsnewway/logs/{round_name}/turn_{turn_number}/response.json")
+        
+        try:
+            with open(log_path, 'r') as f:
+                return json.load(f)
+        except FileNotFoundError:
+            print(f"No log file found for turn {turn_number}")
+            return {}
+        except json.JSONDecodeError:
+            print(f"Error decoding JSON from turn {turn_number}")
+            return {}
+    
     def run_client(self):
+        
         """Main client loop"""
+        # results = self.read_turn_json(25)
+        # game_state = self._parse_game_state(results)
+        # print(print(get_next_state_from_game_state(game_state)))
+
         move = {'snakes': []}
+        i = 0
         while True:
+            print(i)
             result = self.make_move(move_data=move)
-            snakes = [get_next_state(snake) for snake in result.snakes]
-            move = {'snakes': snakes}
             for snake in result.snakes:
                 print(snake.status)
                 print(snake.geometry)
                 print()
+            move = get_next_state_from_game_state(result)
+            print(move)
+            time.sleep(0.5)
+
+            # snakes = [get_next_state(snake) for snake in result.snakes]
+            # move = {'snakes': snakes}
+            # for snake in result.snakes:
+            #     print(snake.status)
+            #     print(snake.geometry)
+            #     print()
 
 if __name__ == "__main__":
     client = GameClient('https://games-test.datsteam.dev')

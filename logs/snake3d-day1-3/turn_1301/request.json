@@ -1,0 +1,28 @@
+{
+  "snakes": [
+    {
+      "id": "d1f3cb9144c857532c5d767ab441a9153a874358",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "0adb74c3a338f8835508a21ee66f248650d162ac",
+      "direction": [
+        0,
+        0,
+        -1
+      ]
+    },
+    {
+      "id": "9b63718d0ea1f3ec541f3705b9db2b6ba9eae54c",
+      "direction": [
+        0,
+        -1,
+        0
+      ]
+    }
+  ]
+}

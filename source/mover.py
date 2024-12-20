@@ -1,80 +1,157 @@
 import random
-from source.data_objects import Snake, Vector3D
-from typing import List
+from source.data_objects import Snake, Vector3D, GameState, Food, SpecialFood
+from typing import List, Tuple, Set
 
-def get_next_direction(current_direction: Vector3D, old_direction: Vector3D, geometry: List[Vector3D]) -> Vector3D:
+import heapq
+
+def find_nearest_food(head: Tuple[int, int, int], food_list: List[Tuple[int, int, int, int]]) -> List[Tuple[int, int, int]]:
+    """Find top 3 nearest food items using Manhattan distance"""
+    if not food_list:
+        return []
+    distances = [(abs(head[0] - f[0]) + abs(head[1] - f[1]) + abs(head[2] - f[2]), f) for f in food_list if f[3] > 0]
+    distances.sort(key=lambda x: x[0])  # Sort by distance
+    return [f[1][:3] for f in distances[:3]]  # Return top 3 nearest food items
+
+def is_valid_position(pos: Tuple[int, int, int], map_size: Vector3D, obstacles: Set[Tuple[int, int, int]], snake_body: Set[Tuple[int, int, int]]) -> bool:
+    """Check if position is valid (within bounds and not in obstacles)"""
+    x, y, z = pos
+    return (0 <= x < map_size.x and 
+            0 <= y < map_size.y and 
+            0 <= z < map_size.z and 
+            pos not in obstacles and 
+            pos not in snake_body)
+
+def a_star_search(start: Tuple[int, int, int], goal: Tuple[int, int, int], 
+                obstacles: Set[Tuple[int, int, int]], snake_body: Set[Tuple[int, int, int]], 
+                map_size: Vector3D) -> List[Tuple[int, int, int]]:
     """
-    Генерирует случайное направление, исключая обратное направление и столкновения с телом.
+    Improved A* implementation with map boundaries and movement rules
     """
-    possible_directions = [
-        Vector3D(1, 0, 0), Vector3D(-1, 0, 0),
-        Vector3D(0, 1, 0), Vector3D(0, -1, 0),
-        Vector3D(0, 0, 1), Vector3D(0, 0, -1)
-    ]
+    def heuristic(a: Tuple[int, int, int], b: Tuple[int, int, int]) -> int:
+        """Manhattan distance between two points"""
+        return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
 
-    # Исключаем обратное направление
-    backward_direction = Vector3D(-current_direction.x, -current_direction.y, -current_direction.z)
-    possible_directions = [d for d in possible_directions if not (
-        d.x == backward_direction.x and 
-        d.y == backward_direction.y and 
-        d.z == backward_direction.z
-    )]
+    def get_neighbors(node: Tuple[int, int, int]) -> List[Tuple[int, int, int]]:
+        """Get valid neighbors respecting map boundaries and obstacles"""
+        directions = [
+            (1, 0, 0), (-1, 0, 0),
+            (0, 1, 0), (0, -1, 0),
+            (0, 0, 1), (0, 0, -1)
+        ]
+        neighbors = []
+        for dx, dy, dz in directions:
+            new_pos = (node[0] + dx, node[1] + dy, node[2] + dz)
+            if is_valid_position(new_pos, map_size, obstacles, snake_body):
+                neighbors.append(new_pos)
+        return neighbors
 
-    head = geometry[0]
-    while possible_directions:
-        new_direction = random.choice(possible_directions)
+    # Initialize A* data structures
+    open_set = []
+    heapq.heappush(open_set, (0, start))
+    closed_set = set()
+    g_score = {start: 0}
+    f_score = {start: heuristic(start, goal)}
+    came_from = {}
 
-        # Предполагаемая новая позиция головы
-        new_head = Vector3D(
-            head.x + new_direction.x,
-            head.y + new_direction.y,
-            head.z + new_direction.z
-        )
+    while open_set:
+        current_f, current = heapq.heappop(open_set)
+        
+        if current in closed_set:
+            continue
+            
+        closed_set.add(current)
 
-        # Проверяем, чтобы новая позиция не пересекалась с телом
-        if not any(pos.x == new_head.x and pos.y == new_head.y and pos.z == new_head.z for pos in geometry):
-            return new_direction
+        if current == goal:
+            path = []
+            while current in came_from:
+                path.append(current)
+                current = came_from[current]
+            path.append(start)
+            path.reverse()
+            return path
 
-        # Исключаем направление, которое привело бы к столкновению
-        possible_directions.remove(new_direction)
+        for neighbor in get_neighbors(current):
+            tentative_g_score = g_score[current] + 1
 
-    # Если не удалось найти направление, возвращаем текущее
-    return current_direction
+            if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
+                came_from[neighbor] = current
+                g_score[neighbor] = tentative_g_score
+                f_score[neighbor] = tentative_g_score + heuristic(neighbor, goal)
+                heapq.heappush(open_set, (f_score[neighbor], neighbor))
 
-def get_next_state(snake: Snake) -> dict:
-    """
-    Рассчитывает следующий стейт змейки.
-    Возвращает dict для совместимости с API.
-    """
-    if snake.status == "dead":
-        # Если змейка мертва, возвращаем стейт без изменений
-        return {
+    return []
+
+def get_next_state_from_game_state(game_state: GameState) -> dict:
+    """Calculate next moves for all snakes"""
+    snake_moves = {'snakes': []}
+    
+    # Collect obstacles
+    obstacles = {(fence.x, fence.y, fence.z) for fence in game_state.fences}
+    for enemy in game_state.enemies:
+        if enemy.status == "alive":
+            obstacles.update((segment.x, segment.y, segment.z) for segment in enemy.geometry)
+    for snake in game_state.snakes:
+        if snake.status == "alive":
+            obstacles.update((segment.x, segment.y, segment.z) for segment in snake.geometry)
+    
+    # Process each snake
+    for snake in game_state.snakes:
+        if snake.status == "dead":
+            snake_moves['snakes'].append({
+                "id": snake.id,
+                "direction": [0, 0, 0]
+            })
+            continue
+        
+        # Get snake head and body
+        head = (snake.geometry[0].x, snake.geometry[0].y, snake.geometry[0].z)
+        snake_body = {(segment.x, segment.y, segment.z) for segment in snake.geometry[1:]}
+        
+        # Collect and find nearest food
+        all_food = [(food.x, food.y, food.z, food.points) for food in game_state.food]
+        # all_food.extend((food.x, food.y, food.z) for food in game_state.specialFood)
+        nearest_food = find_nearest_food(head, all_food)
+        
+        # Find best path to nearest food
+        best_path = None
+        for food_pos in nearest_food:
+            path = a_star_search(head, food_pos, obstacles, snake_body, game_state.mapSize)
+            if path and (best_path is None or len(path) < len(best_path)):
+                best_path = path
+                if len(path) <= 3:  # Early exit if very close food found
+                    break
+        
+        # Calculate direction
+        if best_path and len(best_path) > 1:
+            next_pos = best_path[1]
+            direction = [
+                next_pos[0] - head[0],
+                next_pos[1] - head[1],
+                next_pos[2] - head[2]
+            ]
+        else:
+            # If no path found, continue in current direction if safe
+            current_dir = [snake.direction.x, snake.direction.y, snake.direction.z]
+            next_pos = (
+                head[0] + current_dir[0],
+                head[1] + current_dir[1],
+                head[2] + current_dir[2]
+            )
+            if is_valid_position(next_pos, game_state.mapSize, obstacles, snake_body):
+                direction = current_dir
+            else:
+                # Try to find any safe direction
+                for test_dir in [(1,0,0), (-1,0,0), (0,1,0), (0,-1,0), (0,0,1), (0,0,-1)]:
+                    test_pos = (head[0] + test_dir[0], head[1] + test_dir[1], head[2] + test_dir[2])
+                    if is_valid_position(test_pos, game_state.mapSize, obstacles, snake_body):
+                        direction = list(test_dir)
+                        break
+                else:
+                    direction = [0, 0, 0]  # No safe direction found
+        
+        snake_moves['snakes'].append({
             "id": snake.id,
-            "direction": [snake.direction.x, snake.direction.y, snake.direction.z],
-            "oldDirection": [snake.oldDirection.x, snake.oldDirection.y, snake.oldDirection.z],
-            "geometry": [[pos.x, pos.y, pos.z] for pos in snake.geometry],
-            "deathCount": snake.deathCount,
-            "status": snake.status,
-            "reviveRemainMs": snake.reviveRemainMs,
-        }
-
-    # Генерация нового направления
-    new_direction = get_next_direction(snake.direction, snake.oldDirection, snake.geometry)
-
-    # Обновление геометрии змейки
-    new_head = Vector3D(
-        snake.geometry[0].x + new_direction.x,
-        snake.geometry[0].y + new_direction.y,
-        snake.geometry[0].z + new_direction.z
-    )
-    new_geometry = [new_head] + snake.geometry[:-1]
-
-    return {
-        "id": snake.id,
-        "direction": [new_direction.x, new_direction.y, new_direction.z],
-        "oldDirection": [snake.direction.x, snake.direction.y, snake.direction.z],
-        "geometry": [[pos.x, pos.y, pos.z] for pos in new_geometry],
-        "deathCount": snake.deathCount,
-        "status": snake.status,
-        "reviveRemainMs": snake.reviveRemainMs,
-    }
+            "direction": direction
+        })
+    
+    return snake_moves

@@ -1,0 +1,78 @@
+{
+  "snakes": [
+    {
+      "id": "2caa00b1e528f18c0a753de184d2841d4aa9c2a5",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "oldDirection": [
+        1,
+        0,
+        0
+      ],
+      "geometry": [
+        [
+          79,
+          104,
+          28
+        ]
+      ],
+      "deathCount": 5,
+      "status": "alive",
+      "reviveRemainMs": 0
+    },
+    {
+      "id": "920a7d78b04f30e85400471f9fcc80ed2b29a90c",
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "oldDirection": [
+        -1,
+        0,
+        0
+      ],
+      "geometry": [
+        [
+          54,
+          1,
+          6
+        ]
+      ],
+      "deathCount": 4,
+      "status": "alive",
+      "reviveRemainMs": 0
+    },
+    {
+      "id": "5d79b1c78ab91be08ded6f58b7e46f55e5136e3b",
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "oldDirection": [
+        0,
+        -1,
+        0
+      ],
+      "geometry": [
+        [
+          62,
+          109,
+          34
+        ],
+        [
+          62,
+          110,
+          34
+        ]
+      ],
+      "deathCount": 1,
+      "status": "alive",
+      "reviveRemainMs": 0
+    }
+  ]
+}
