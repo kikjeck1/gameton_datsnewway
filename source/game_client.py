@@ -125,6 +125,7 @@ class GameClient:
             # Выводим дополнительную информацию о змеях
             print("Turn:", result.turn)
             print("Tick remain:", result.tickRemainMs)
+            print("Snakes:", result.snakes)
             for snake in result.snakes:
                 print(snake.status)
             print()

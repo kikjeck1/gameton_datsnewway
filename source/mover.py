@@ -117,24 +117,15 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
     # Collect obstacles
     obstacles = {(fence.x, fence.y, fence.z) for fence in game_state.fences}
 
-    # Добавляем всех змей (и своих, и чужих) в препятствия
+    # Add all snakes (both own and enemies) to obstacles
     all_snakes = game_state.enemies + game_state.snakes
     for snake in all_snakes:
         if snake.status == "alive":
-            # Добавляем все сегменты кроме последнего, так как он освободится при движении
+            # Add all segments except the last one
             obstacles.update(
                 (segment.x, segment.y, segment.z)
                 for segment in snake.geometry[:-1]  # TODO: add more complex logic
             )
-            
-            head = snake.geometry[0]
-            possible_head_positions = [
-                (head.x + dx, head.y + dy, head.z + dz)
-                for dx, dy, dz in [
-                    (1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)
-                ]
-            ]
-            obstacles.update(possible_head_positions)
 
     # Process each snake
     for snake in game_state.snakes:
@@ -150,7 +141,7 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
 
         # Collect and find nearest food
         all_food = [(food.x, food.y, food.z, food.points) for food in game_state.food]
-        nearest_food = find_nearest_food(head, all_food, top_k=10)
+        nearest_food = find_nearest_food(head, all_food, top_k=5)
 
         # Find best path to nearest food
         best_path = None
@@ -162,6 +153,8 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
                 best_path = path
 
         # Calculate direction
+        direction = [0, 0, 0]  # Default direction if no valid move found
+
         if best_path and len(best_path) > 1:
             next_pos = best_path[1]
             direction = [
@@ -170,37 +163,25 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
                 next_pos[2] - head[2],
             ]
         else:
-            # If no path found, continue in current direction if safe
-            current_dir = [snake.direction.x, snake.direction.y, snake.direction.z]
-            next_pos = (
-                head[0] + current_dir[0],
-                head[1] + current_dir[1],
-                head[2] + current_dir[2],
-            )
-            if is_valid_position(next_pos, game_state.mapSize, obstacles, snake_body):
-                direction = current_dir
-            else:
-                # Try to find any safe direction
-                for test_dir in [
-                    (1, 0, 0),
-                    (-1, 0, 0),
-                    (0, 1, 0),
-                    (0, -1, 0),
-                    (0, 0, 1),
-                    (0, 0, -1),
-                ]:
-                    test_pos = (
-                        head[0] + test_dir[0],
-                        head[1] + test_dir[1],
-                        head[2] + test_dir[2],
-                    )
-                    if is_valid_position(
-                        test_pos, game_state.mapSize, obstacles, snake_body
-                    ):
-                        direction = list(test_dir)
-                        break
-                else:
-                    direction = [0, 0, 0]  # No safe direction found
+            # Try to find any safe direction
+            for test_dir in [
+                (1, 0, 0),
+                (-1, 0, 0),
+                (0, 1, 0),
+                (0, -1, 0),
+                (0, 0, 1),
+                (0, 0, -1),
+            ]:
+                test_pos = (
+                    head[0] + test_dir[0],
+                    head[1] + test_dir[1],
+                    head[2] + test_dir[2],
+                )
+                if is_valid_position(
+                    test_pos, game_state.mapSize, obstacles, snake_body
+                ):
+                    direction = list(test_dir)
+                    break
 
         snake_moves["snakes"].append({"id": snake.id, "direction": direction})
 
