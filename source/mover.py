@@ -116,16 +116,31 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
 
     # Collect obstacles
     obstacles = {(fence.x, fence.y, fence.z) for fence in game_state.fences}
-
-    # Add all snakes (both own and enemies) to obstacles
-    all_snakes = game_state.enemies + game_state.snakes
-    for snake in all_snakes:
+    
+    for snake in game_state.snakes:
         if snake.status == "alive":
             # Add all segments except the last one
             obstacles.update(
                 (segment.x, segment.y, segment.z)
                 for segment in snake.geometry[:-1]  # TODO: add more complex logic
             )
+            
+    for snake in game_state.enemies:
+        if snake.status == "alive":
+            
+            obstacles.update(
+                (segment.x, segment.y, segment.z)
+                for segment in snake.geometry[:-1]  # TODO: add more complex logic
+            )
+            
+            head = snake.geometry[0]
+            possible_head_positions = [
+                (head.x + dx, head.y + dy, head.z + dz)
+                for dx, dy, dz in [
+                    (1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)
+                ]
+            ]
+            obstacles.update(possible_head_positions)
 
     # Process each snake
     for snake in game_state.snakes:
