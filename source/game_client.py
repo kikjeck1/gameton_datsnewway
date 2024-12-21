@@ -108,22 +108,22 @@ class GameClient:
         move = {"snakes": []}
 
         # Apply decorators
-        make_move_timed = measure_execution_time("make_move")(self.make_move)
+        # make_move_timed = measure_execution_time("make_move")(self.make_move)
         get_next_state_timed = measure_execution_time("get_next_state")(
             get_next_state_from_game_state
         )
 
         while True:
-            result, move_time = make_move_timed(move_data=move)
+            result = self.make_move(move_data={"snakes": []})
             move, state_time = get_next_state_timed(result)
+            result = self.make_move(move_data=move)
 
-            total_execution_time = move_time + state_time
-            sleep_time = max(
-                0, (result.tickRemainMs - total_execution_time) / 1000 + 0.6
-            )
+            # total_execution_time = state_time
+            sleep_time = max(0, (result.tickRemainMs) / 1000)
 
             # Выводим дополнительную информацию о змеях
             print("Turn:", result.turn)
+            print("Get Next state func time:", state_time)
             print("Tick remain:", result.tickRemainMs)
             print("Snakes:", result.snakes)
             for snake in result.snakes:

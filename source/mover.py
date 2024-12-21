@@ -14,12 +14,8 @@ def find_nearest_food(
     """Find top 3 nearest food items using Manhattan distance"""
     if not food_list:
         return []
-    distances = [
-        (f[-1] / (manhattan_distance(head, f[:3]) ** 2), f)  # See Kostyl ** 2
-        for f in food_list
-        if f[-1] > 0
-    ]
-    distances.sort(key=lambda x: -x[0])  # Sort by  points / distance
+    distances = [(manhattan_distance(head, f[:3]), f) for f in food_list if f[-1] > 0]
+    distances.sort(key=lambda x: x[0])  # Sort by  points / distance
     return [f[1][:3] for f in distances[:top_k]]  # Return top k foods
 
 
@@ -156,7 +152,7 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
 
         # Collect and find nearest food
         all_food = [(food.x, food.y, food.z, food.points) for food in game_state.food]
-        nearest_food = find_nearest_food(head, all_food, top_k=5)
+        nearest_food = find_nearest_food(head, all_food, top_k=3)
 
         # Find best path to nearest food
         best_path = None
@@ -166,11 +162,11 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
             )
             if path and (best_path is None or len(path) < len(best_path)):
                 best_path = path
-
+        # print(best_path)
         # Calculate direction
         direction = [0, 0, 0]  # Default direction if no valid move found
 
-        if best_path and len(best_path) > 1:
+        if best_path:
             next_pos = best_path[1]
             direction = [
                 next_pos[0] - head[0],
@@ -197,6 +193,20 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
                 ):
                     direction = list(test_dir)
                     break
+
+        # write to file
+        with open("log.txt", "a") as f:
+            f.write(f"game_state: {game_state.turn}\n")
+            f.write(f"snake: {snake.id}\n")
+            f.write(f"head: {head}\n")
+            f.write(f"direction: {direction}\n")
+            f.write(f"next_point: {best_path[1] if len(best_path) > 1 else None}\n")
+            f.write(f"to_point: {best_path[-1] if len(best_path) >= 1 else None}\n")
+            f.write(f"distance: {len(best_path) if best_path else 0}\n")
+            f.write(
+                f"distance_manhattan: {manhattan_distance(head, best_path[-1]) if best_path else 0}\n"
+            )
+            f.write(f"\n")
 
         snake_moves["snakes"].append({"id": snake.id, "direction": direction})
 
