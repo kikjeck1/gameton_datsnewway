@@ -121,6 +121,8 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
                 for segment in snake.geometry[:-1]  # TODO: add more complex logic
             )
             
+    enemy_heads = set()
+            
     for snake in game_state.enemies:
         if snake.status == "alive":
             
@@ -137,6 +139,7 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
                 ]
             ]
             obstacles.update(possible_head_positions)
+            enemy_heads.update(possible_head_positions)
 
     # Process each snake
     for snake in game_state.snakes:
@@ -152,7 +155,31 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
 
         # Collect and find nearest food
         all_food = [(food.x, food.y, food.z, food.points) for food in game_state.food]
-        nearest_food = find_nearest_food(head, all_food, top_k=3)
+        
+        # Validate food
+        valid_food = []
+        for f in all_food:
+            food_pos = f[:3]
+            food_points = f[3]
+
+            # Calculate distance to this snake's head
+            distance_to_snake = manhattan_distance(head, food_pos)
+
+            # Check if any enemy head is closer or equally close
+            closer_to_enemy = False
+            for enemy_head in enemy_heads:
+                if (
+                    manhattan_distance(enemy_head, food_pos) <= distance_to_snake
+                    and is_valid_position(enemy_head, game_state.mapSize, obstacles, set())
+                ):
+                    closer_to_enemy = True
+                    break
+
+            if not closer_to_enemy:
+                valid_food.append(f)
+        
+        
+        nearest_food = find_nearest_food(head, valid_food, top_k=3)
 
         # Find best path to nearest food
         best_path = None
