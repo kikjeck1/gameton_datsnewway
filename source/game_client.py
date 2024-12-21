@@ -34,7 +34,7 @@ def measure_execution_time(func_name):
 
 
 class GameClient:
-    def __init__(self, base_url: str = "http://games-test.datsteam.dev"):
+    def __init__(self, base_url: str = "http://games.datsteam.dev"):
         self.base_url = base_url
         self.headers = {
             "X-Auth-Token": token,
@@ -125,7 +125,7 @@ class GameClient:
             print("Turn:", result.turn)
             print("Get Next state func time:", state_time)
             print("Tick remain:", result.tickRemainMs)
-            print("Snakes:", result.snakes)
+            # print("Snakes:", result.snakes)
             for snake in result.snakes:
                 print(snake.status)
             print()
@@ -137,5 +137,5 @@ class GameClient:
 
 
 if __name__ == "__main__":
-    client = GameClient("https://games-test.datsteam.dev")
+    client = GameClient("https://games.datsteam.dev")
     client.run_client()
