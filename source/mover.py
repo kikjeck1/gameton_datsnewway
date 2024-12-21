@@ -122,6 +122,15 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
                 (segment.x, segment.y, segment.z)
                 for segment in snake.geometry[:-1]  # TODO: add more complex logic
             )
+            
+            head = snake.geometry[0]
+            possible_head_positions = [
+                (head.x + dx, head.y + dy, head.z + dz)
+                for dx, dy, dz in [
+                    (1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)
+                ]
+            ]
+            obstacles.update(possible_head_positions)
 
     # Process each snake
     for snake in game_state.snakes:
