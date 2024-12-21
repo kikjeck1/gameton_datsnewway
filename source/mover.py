@@ -4,6 +4,22 @@ from typing import List, Tuple, Set
 import heapq
 import random
 
+def check_that_dead_end(pos: Tuple[int, int, int], obstacles: Set[Tuple[int, int, int]], head: Tuple[int, int, int]) -> bool:
+    directions = [
+        (1, 0, 0), 
+        (-1, 0, 0), 
+        (0, 1, 0),  
+        (0, -1, 0),
+        (0, 0, 1), 
+        (0, 0, -1)  
+    ]
+    exit_count = 0
+    for dx, dy, dz in directions:
+        new_pos = (pos[0] + dx, pos[1] + dy, pos[2] + dz)
+        if (new_pos not in obstacles) or new_pos == head:
+            exit_count += 1
+    return exit_count < 2
+     
 
 def manhattan_distance(a: Tuple[int, int, int], b: Tuple[int, int, int]) -> int:
     return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
@@ -178,6 +194,8 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
         valid_food = []
         for f in all_food:
             food_pos = f[:3]
+            if check_that_dead_end(food_pos, obstacles, head):
+                continue
 
             # Calculate distance to this snake's head
             distance_to_snake = manhattan_distance(head, food_pos)
