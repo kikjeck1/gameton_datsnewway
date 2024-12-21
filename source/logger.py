@@ -2,28 +2,28 @@ import json
 from pathlib import Path
 from typing import Dict, Any
 
+
 class GameLogger:
     def __init__(self, base_dir: str = "logs"):
         self.base_dir = Path(base_dir)
         self.base_dir.mkdir(exist_ok=True)
-        self.round_dir = None
-        
+        self.game_file = None
+
     def set_round(self, round_name: str):
-        """Setup logging directory for a specific round"""
-        self.round_dir = self.base_dir / round_name
-        self.round_dir.mkdir(exist_ok=True)
-        
-    def log_turn(self, turn_number: int, request_data: Dict[str, Any], response_data: Dict[str, Any]):
+        """Setup game log file"""
+        self.game_file = self.base_dir / f"{round_name}.jsonl"
+
+    def log_turn(
+        self,
+        turn_number: int,
+        request_data: Dict[str, Any],
+        response_data: Dict[str, Any],
+    ):
         """Log request and response data for a specific turn"""
-        if not self.round_dir:
+        if not self.game_file:
             return
-            
-        turn_dir = self.round_dir / f'turn_{turn_number}'
-        turn_dir.mkdir(exist_ok=True)
-        
-        # Save request and response
-        with open(turn_dir / 'request.json', 'w', encoding='utf-8') as f:
-            json.dump(request_data, f, indent=2)
-            
-        with open(turn_dir / 'response.json', 'w', encoding='utf-8') as f:
-            json.dump(response_data, f, indent=2)
+
+        # Save request and response as single line JSON entries
+        with open(self.game_file, "a", encoding="utf-8") as f:
+            # f.write(json.dumps({"turn": turn_number, "request": request_data}) + "\n")
+            f.write(json.dumps(response_data) + "\n")

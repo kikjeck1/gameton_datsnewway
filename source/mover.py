@@ -4,19 +4,23 @@ from typing import List, Tuple, Set
 import heapq
 
 
+def manhattan_distance(a: Tuple[int, int, int], b: Tuple[int, int, int]) -> int:
+    return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
+
+
 def find_nearest_food(
-    head: Tuple[int, int, int], food_list: List[Tuple[int, int, int, int]]
+    head: Tuple[int, int, int], food_list: List[Tuple[int, int, int, int]], top_k=10
 ) -> List[Tuple[int, int, int]]:
     """Find top 3 nearest food items using Manhattan distance"""
     if not food_list:
         return []
     distances = [
-        (abs(head[0] - f[0]) + abs(head[1] - f[1]) + abs(head[2] - f[2]), f)
+        (f[-1] / (manhattan_distance(head, f[:3]) ** 2), f)  # See Kostyl ** 2
         for f in food_list
-        if f[3] > 0
+        if f[-1] > 0
     ]
-    distances.sort(key=lambda x: x[0])  # Sort by distance
-    return [f[1][:3] for f in distances[:3]]  # Return top 3 nearest food items
+    distances.sort(key=lambda x: -x[0])  # Sort by  points / distance
+    return [f[1][:3] for f in distances[:top_k]]  # Return top k foods
 
 
 def is_valid_position(
@@ -146,8 +150,7 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
 
         # Collect and find nearest food
         all_food = [(food.x, food.y, food.z, food.points) for food in game_state.food]
-        # all_food.extend((food.x, food.y, food.z) for food in game_state.specialFood)
-        nearest_food = find_nearest_food(head, all_food)
+        nearest_food = find_nearest_food(head, all_food, top_k=10)
 
         # Find best path to nearest food
         best_path = None
@@ -157,8 +160,6 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
             )
             if path and (best_path is None or len(path) < len(best_path)):
                 best_path = path
-                if len(path) <= 3:  # Early exit if very close food found
-                    break
 
         # Calculate direction
         if best_path and len(best_path) > 1:

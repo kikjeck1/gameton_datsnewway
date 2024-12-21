@@ -61,18 +61,19 @@ class GameClient:
 
     def make_move(self, move_data: dict) -> GameState:
         """Make a move and log the results"""
-        # Check if we need to get/update round name
         if not self.round_name:
             self.round_name = self._get_active_round()
             if self.round_name:
                 self.logger.set_round(self.round_name)
 
+        # Make API request
         api = "/play/snake3d/player/move"
         url = f"{self.base_url}{api}"
         response = requests.post(url, headers=self.headers, json=move_data)
         response_data = response.json()
-        # print(response_data)
+
         game_state = parse_game_state(response_data)
+
         if self.round_name:
             self.logger.log_turn(game_state.turn, move_data, response_data)
 
@@ -105,7 +106,6 @@ class GameClient:
     def run_client(self):
         """Main client loop"""
         move = {"snakes": []}
-        i = 0
 
         # Apply decorators
         make_move_timed = measure_execution_time("make_move")(self.make_move)
@@ -114,23 +114,25 @@ class GameClient:
         )
 
         while True:
-            print(i)
             result, move_time = make_move_timed(move_data=move)
             move, state_time = get_next_state_timed(result)
 
             total_execution_time = move_time + state_time
-            sleep_time = max(0, (result.tickRemainMs - total_execution_time) / 1000)
+            sleep_time = max(
+                0, (result.tickRemainMs - total_execution_time) / 1000 + 0.6
+            )
 
             # Выводим дополнительную информацию о змеях
+            print("Turn:", result.turn)
+            print("Tick remain:", result.tickRemainMs)
             for snake in result.snakes:
                 print(snake.status)
+            print()
 
             if sleep_time > 0:
                 time.sleep(sleep_time)
             else:
                 print("Warning: Processing took longer than tick time!")
-
-            i += 1
 
 
 if __name__ == "__main__":
