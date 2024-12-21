@@ -17,6 +17,22 @@ from source.mover import get_next_state_from_game_state
 token = "5bcfb855-b4bc-4f27-a1ed-acee9e238b79"
 
 
+def measure_execution_time(func_name):
+    """Decorator to measure and print execution time"""
+
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            start_time = time.time()
+            result = func(*args, **kwargs)
+            execution_time = (time.time() - start_time) * 1000
+            print(f"{func_name} execution time: {execution_time:.2f}ms")
+            return result, execution_time
+
+        return wrapper
+
+    return decorator
+
+
 class GameClient:
     def __init__(self, base_url: str = "http://games-test.datsteam.dev"):
         self.base_url = base_url
@@ -32,7 +48,6 @@ class GameClient:
         """Get information about game rounds"""
         api = "/rounds/snake3d"
         url = f"{self.base_url}{api}"
-        print("here")
         response = requests.get(url, headers=self.headers)
         print(response.status_code)
         return response.json()
@@ -47,17 +62,14 @@ class GameClient:
     def make_move(self, move_data: dict) -> GameState:
         """Make a move and log the results"""
         # Check if we need to get/update round name
-        print(self.round_name)
         if not self.round_name:
             self.round_name = self._get_active_round()
             if self.round_name:
                 self.logger.set_round(self.round_name)
-        print(self.round_name)
 
         api = "/play/snake3d/player/move"
         url = f"{self.base_url}{api}"
         response = requests.post(url, headers=self.headers, json=move_data)
-        print(response.status_code)
         response_data = response.json()
         # print(response_data)
         game_state = parse_game_state(response_data)
@@ -92,29 +104,33 @@ class GameClient:
 
     def run_client(self):
         """Main client loop"""
-        # results = self.read_turn_json(25)
-        # game_state = parse_game_state(results)
-        # print(print(get_next_state_from_game_state(game_state)))
-
         move = {"snakes": []}
         i = 0
+
+        # Apply decorators
+        make_move_timed = measure_execution_time("make_move")(self.make_move)
+        get_next_state_timed = measure_execution_time("get_next_state")(
+            get_next_state_from_game_state
+        )
+
         while True:
             print(i)
-            result = self.make_move(move_data=move)
+            result, move_time = make_move_timed(move_data=move)
+            move, state_time = get_next_state_timed(result)
+
+            total_execution_time = move_time + state_time
+            sleep_time = max(0, (result.tickRemainMs - total_execution_time) / 1000)
+
+            # Выводим дополнительную информацию о змеях
             for snake in result.snakes:
                 print(snake.status)
-                print(snake.geometry)
-                print()
-            move = get_next_state_from_game_state(result)
-            print(move)
-            time.sleep(0.5)
 
-            # snakes = [get_next_state(snake) for snake in result.snakes]
-            # move = {'snakes': snakes}
-            # for snake in result.snakes:
-            #     print(snake.status)
-            #     print(snake.geometry)
-            #     print()
+            if sleep_time > 0:
+                time.sleep(sleep_time)
+            else:
+                print("Warning: Processing took longer than tick time!")
+
+            i += 1
 
 
 if __name__ == "__main__":
