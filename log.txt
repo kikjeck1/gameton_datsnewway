@@ -15271,3 +15271,1704 @@ to_point: (0, 57, 1)
 distance: 26
 distance_manhattan: 25
 
+game_state: 1995
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (78, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1995
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (80, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1995
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (12, 68, 2)
+direction: [-1, 0, 0]
+next_point: (11, 68, 2)
+to_point: (0, 57, 1)
+distance: 25
+distance_manhattan: 24
+
+game_state: 1996
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (79, 91, 30)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1996
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (81, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1996
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (11, 68, 2)
+direction: [-1, 0, 0]
+next_point: (10, 68, 2)
+to_point: (0, 57, 1)
+distance: 24
+distance_manhattan: 23
+
+game_state: 1997
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (79, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1997
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (82, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1997
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (10, 68, 2)
+direction: [-1, 0, 0]
+next_point: (9, 68, 2)
+to_point: (0, 57, 1)
+distance: 23
+distance_manhattan: 22
+
+game_state: 1998
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (80, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1998
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (83, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1998
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (9, 68, 2)
+direction: [-1, 0, 0]
+next_point: (8, 68, 2)
+to_point: (0, 57, 1)
+distance: 22
+distance_manhattan: 21
+
+game_state: 1999
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (81, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1999
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (84, 91, 30)
+direction: [0, -1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 1999
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (8, 68, 2)
+direction: [-1, 0, 0]
+next_point: (7, 68, 2)
+to_point: (0, 57, 1)
+distance: 21
+distance_manhattan: 20
+
+game_state: 2000
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (82, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2000
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (84, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2000
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (7, 68, 2)
+direction: [-1, 0, 0]
+next_point: (6, 68, 2)
+to_point: (0, 57, 1)
+distance: 20
+distance_manhattan: 19
+
+game_state: 2001
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (83, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2001
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (85, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2001
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (6, 68, 2)
+direction: [-1, 0, 0]
+next_point: (5, 68, 2)
+to_point: (0, 57, 1)
+distance: 19
+distance_manhattan: 18
+
+game_state: 2002
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (84, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2002
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (86, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2002
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (5, 68, 2)
+direction: [-1, 0, 0]
+next_point: (4, 68, 2)
+to_point: (0, 57, 1)
+distance: 18
+distance_manhattan: 17
+
+game_state: 2003
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (85, 92, 30)
+direction: [0, -1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2003
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (87, 90, 30)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2003
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (4, 68, 2)
+direction: [-1, 0, 0]
+next_point: (3, 68, 2)
+to_point: (0, 57, 1)
+distance: 17
+distance_manhattan: 16
+
+game_state: 2004
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (85, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2004
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (87, 91, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2004
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (3, 68, 2)
+direction: [-1, 0, 0]
+next_point: (2, 68, 2)
+to_point: (0, 57, 1)
+distance: 16
+distance_manhattan: 15
+
+game_state: 2005
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (86, 91, 30)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2005
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (88, 91, 30)
+direction: [0, -1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2005
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (2, 68, 2)
+direction: [-1, 0, 0]
+next_point: (1, 68, 2)
+to_point: (0, 57, 1)
+distance: 15
+distance_manhattan: 14
+
+game_state: 2006
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (86, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2006
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (88, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2006
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (1, 68, 2)
+direction: [-1, 0, 0]
+next_point: (0, 68, 2)
+to_point: (0, 57, 1)
+distance: 14
+distance_manhattan: 13
+
+game_state: 2007
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (87, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2007
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (89, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2007
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 68, 2)
+direction: [0, -1, 0]
+next_point: (0, 67, 2)
+to_point: (0, 57, 1)
+distance: 13
+distance_manhattan: 12
+
+game_state: 2008
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (88, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2008
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (90, 90, 30)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2008
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 67, 2)
+direction: [0, -1, 0]
+next_point: (0, 66, 2)
+to_point: (0, 57, 1)
+distance: 12
+distance_manhattan: 11
+
+game_state: 2009
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (89, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2009
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (90, 91, 30)
+direction: [-1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2009
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 66, 2)
+direction: [0, -1, 0]
+next_point: (0, 65, 2)
+to_point: (0, 57, 1)
+distance: 11
+distance_manhattan: 10
+
+game_state: 2010
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (90, 92, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2010
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (89, 91, 30)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2010
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 65, 2)
+direction: [0, -1, 0]
+next_point: (0, 64, 2)
+to_point: (0, 57, 1)
+distance: 10
+distance_manhattan: 9
+
+game_state: 2011
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (91, 92, 30)
+direction: [0, -1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2011
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (89, 91, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2011
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 64, 2)
+direction: [0, -1, 0]
+next_point: (0, 63, 2)
+to_point: (0, 57, 1)
+distance: 9
+distance_manhattan: 8
+
+game_state: 2012
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (91, 91, 30)
+direction: [0, -1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2012
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (90, 91, 31)
+direction: [0, -1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2012
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 63, 2)
+direction: [0, -1, 0]
+next_point: (0, 62, 2)
+to_point: (0, 57, 1)
+distance: 8
+distance_manhattan: 7
+
+game_state: 2013
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (91, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2013
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (90, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2013
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 62, 2)
+direction: [0, -1, 0]
+next_point: (0, 61, 2)
+to_point: (0, 57, 1)
+distance: 7
+distance_manhattan: 6
+
+game_state: 2014
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (92, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2014
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (91, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2014
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 61, 2)
+direction: [0, -1, 0]
+next_point: (0, 60, 2)
+to_point: (0, 57, 1)
+distance: 6
+distance_manhattan: 5
+
+game_state: 2015
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (93, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2015
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (92, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2015
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 60, 2)
+direction: [0, -1, 0]
+next_point: (0, 59, 2)
+to_point: (0, 57, 1)
+distance: 5
+distance_manhattan: 4
+
+game_state: 2016
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (94, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2016
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (93, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2016
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 59, 2)
+direction: [0, -1, 0]
+next_point: (0, 58, 2)
+to_point: (0, 57, 1)
+distance: 4
+distance_manhattan: 3
+
+game_state: 2017
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (95, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2017
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (94, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2017
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 58, 2)
+direction: [0, -1, 0]
+next_point: (0, 57, 2)
+to_point: (0, 57, 1)
+distance: 3
+distance_manhattan: 2
+
+game_state: 2018
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (96, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2018
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (95, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2018
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 57, 2)
+direction: [0, 0, -1]
+next_point: (0, 57, 1)
+to_point: (0, 57, 1)
+distance: 2
+distance_manhattan: 1
+
+game_state: 2019
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (97, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2019
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (96, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2019
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (0, 57, 1)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2020
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (98, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2020
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (97, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2020
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (1, 57, 1)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2021
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (99, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2021
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (98, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2021
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (2, 57, 1)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2022
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (100, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2022
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (99, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2022
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (2, 57, 2)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2023
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (101, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2023
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (100, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2023
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (3, 57, 2)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2024
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (102, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2024
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (101, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2024
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (3, 58, 2)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2025
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (103, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2025
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (102, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2025
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (3, 59, 2)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2026
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (104, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2026
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (103, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2026
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (3, 60, 2)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2027
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (105, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2027
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (104, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2027
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (3, 60, 3)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2028
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (106, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2028
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (105, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2028
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (4, 60, 3)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2029
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (107, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2029
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (106, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2029
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (4, 60, 4)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2030
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (108, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2030
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (107, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2030
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (5, 60, 4)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2031
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (109, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2031
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (108, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2031
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (5, 61, 4)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2032
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (110, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2032
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (109, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2032
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (5, 62, 4)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2033
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (111, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2033
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (110, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2033
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (5, 63, 4)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2034
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (112, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2034
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (111, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2034
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (5, 64, 4)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2035
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (113, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2035
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (112, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2035
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (6, 64, 4)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2036
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (114, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2036
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (113, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2036
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (7, 64, 4)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2037
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (115, 90, 30)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2037
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (114, 90, 31)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2037
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (7, 65, 4)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2038
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 90, 30)
+direction: [0, -1, 0]
+next_point: (116, 89, 30)
+to_point: (124, 83, 41)
+distance: 27
+distance_manhattan: 26
+
+game_state: 2038
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 90, 31)
+direction: [0, -1, 0]
+next_point: (115, 89, 31)
+to_point: (124, 83, 41)
+distance: 27
+distance_manhattan: 26
+
+game_state: 2038
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (7, 65, 5)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2039
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 89, 30)
+direction: [0, -1, 0]
+next_point: (116, 88, 30)
+to_point: (124, 83, 41)
+distance: 26
+distance_manhattan: 25
+
+game_state: 2039
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 89, 31)
+direction: [0, -1, 0]
+next_point: (115, 88, 31)
+to_point: (124, 83, 41)
+distance: 26
+distance_manhattan: 25
+
+game_state: 2039
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (7, 65, 6)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2040
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 88, 30)
+direction: [0, -1, 0]
+next_point: (116, 87, 30)
+to_point: (124, 83, 41)
+distance: 25
+distance_manhattan: 24
+
+game_state: 2040
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 88, 31)
+direction: [0, -1, 0]
+next_point: (115, 87, 31)
+to_point: (124, 83, 41)
+distance: 25
+distance_manhattan: 24
+
+game_state: 2040
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (7, 65, 7)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2041
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 87, 30)
+direction: [0, -1, 0]
+next_point: (116, 86, 30)
+to_point: (124, 83, 41)
+distance: 24
+distance_manhattan: 23
+
+game_state: 2041
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 87, 31)
+direction: [0, -1, 0]
+next_point: (115, 86, 31)
+to_point: (124, 83, 41)
+distance: 24
+distance_manhattan: 23
+
+game_state: 2041
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (8, 65, 7)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2042
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 86, 30)
+direction: [0, -1, 0]
+next_point: (116, 85, 30)
+to_point: (124, 83, 41)
+distance: 23
+distance_manhattan: 22
+
+game_state: 2042
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 86, 31)
+direction: [0, -1, 0]
+next_point: (115, 85, 31)
+to_point: (124, 83, 41)
+distance: 23
+distance_manhattan: 22
+
+game_state: 2042
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (8, 65, 8)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2043
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 85, 30)
+direction: [0, -1, 0]
+next_point: (116, 84, 30)
+to_point: (124, 83, 41)
+distance: 22
+distance_manhattan: 21
+
+game_state: 2043
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 85, 31)
+direction: [0, -1, 0]
+next_point: (115, 84, 31)
+to_point: (124, 83, 41)
+distance: 22
+distance_manhattan: 21
+
+game_state: 2043
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (8, 65, 9)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2044
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 84, 30)
+direction: [0, -1, 0]
+next_point: (116, 83, 30)
+to_point: (124, 83, 41)
+distance: 21
+distance_manhattan: 20
+
+game_state: 2044
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 84, 31)
+direction: [0, -1, 0]
+next_point: (115, 83, 31)
+to_point: (124, 83, 41)
+distance: 21
+distance_manhattan: 20
+
+game_state: 2044
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (9, 65, 9)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2045
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 30)
+direction: [0, 0, 1]
+next_point: (116, 83, 31)
+to_point: (124, 83, 41)
+distance: 20
+distance_manhattan: 19
+
+game_state: 2045
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 31)
+direction: [0, 0, 1]
+next_point: (115, 83, 32)
+to_point: (124, 83, 41)
+distance: 20
+distance_manhattan: 19
+
+game_state: 2045
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (9, 66, 9)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2046
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 31)
+direction: [0, 0, 1]
+next_point: (116, 83, 32)
+to_point: (124, 83, 41)
+distance: 19
+distance_manhattan: 18
+
+game_state: 2046
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 32)
+direction: [0, 0, 1]
+next_point: (115, 83, 33)
+to_point: (124, 83, 41)
+distance: 19
+distance_manhattan: 18
+
+game_state: 2046
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (10, 66, 9)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2047
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 32)
+direction: [0, 0, 1]
+next_point: (116, 83, 33)
+to_point: (124, 83, 41)
+distance: 18
+distance_manhattan: 17
+
+game_state: 2047
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 33)
+direction: [0, 0, 1]
+next_point: (115, 83, 34)
+to_point: (124, 83, 41)
+distance: 18
+distance_manhattan: 17
+
+game_state: 2047
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (10, 67, 9)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2048
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 33)
+direction: [0, 0, 1]
+next_point: (116, 83, 34)
+to_point: (124, 83, 41)
+distance: 17
+distance_manhattan: 16
+
+game_state: 2048
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 34)
+direction: [0, 0, 1]
+next_point: (115, 83, 35)
+to_point: (124, 83, 41)
+distance: 17
+distance_manhattan: 16
+
+game_state: 2048
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (11, 67, 9)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2049
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 34)
+direction: [0, 0, 1]
+next_point: (116, 83, 35)
+to_point: (124, 83, 41)
+distance: 16
+distance_manhattan: 15
+
+game_state: 2049
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 35)
+direction: [0, 0, 1]
+next_point: (115, 83, 36)
+to_point: (124, 83, 41)
+distance: 16
+distance_manhattan: 15
+
+game_state: 2049
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (12, 67, 9)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2050
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 35)
+direction: [0, 0, 1]
+next_point: (116, 83, 36)
+to_point: (124, 83, 41)
+distance: 15
+distance_manhattan: 14
+
+game_state: 2050
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 36)
+direction: [0, 0, 1]
+next_point: (115, 83, 37)
+to_point: (124, 83, 41)
+distance: 15
+distance_manhattan: 14
+
+game_state: 2050
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (12, 67, 10)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2051
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 36)
+direction: [0, 0, 1]
+next_point: (116, 83, 37)
+to_point: (124, 83, 41)
+distance: 14
+distance_manhattan: 13
+
+game_state: 2051
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 37)
+direction: [0, 0, 1]
+next_point: (115, 83, 38)
+to_point: (124, 83, 41)
+distance: 14
+distance_manhattan: 13
+
+game_state: 2051
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (13, 67, 10)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2052
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 37)
+direction: [0, 0, 1]
+next_point: (116, 83, 38)
+to_point: (124, 83, 41)
+distance: 13
+distance_manhattan: 12
+
+game_state: 2052
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 38)
+direction: [0, 0, 1]
+next_point: (115, 83, 39)
+to_point: (124, 83, 41)
+distance: 13
+distance_manhattan: 12
+
+game_state: 2052
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (14, 67, 10)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2053
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 38)
+direction: [0, 0, 1]
+next_point: (116, 83, 39)
+to_point: (124, 83, 41)
+distance: 12
+distance_manhattan: 11
+
+game_state: 2053
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 39)
+direction: [0, 0, 1]
+next_point: (115, 83, 40)
+to_point: (124, 83, 41)
+distance: 12
+distance_manhattan: 11
+
+game_state: 2053
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (14, 67, 11)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2054
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 39)
+direction: [0, 0, 1]
+next_point: (116, 83, 40)
+to_point: (124, 83, 41)
+distance: 11
+distance_manhattan: 10
+
+game_state: 2054
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 40)
+direction: [0, 0, 1]
+next_point: (115, 83, 41)
+to_point: (124, 83, 41)
+distance: 11
+distance_manhattan: 10
+
+game_state: 2054
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (14, 67, 12)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2055
+snake: 1337427eb57ff399855db2c9f95d614b40115236
+head: (116, 83, 40)
+direction: [0, 0, 1]
+next_point: (116, 83, 41)
+to_point: (124, 83, 41)
+distance: 10
+distance_manhattan: 9
+
+game_state: 2055
+snake: a6acbac29158ca0f6ec6166b9beecdc206a4aea8
+head: (115, 83, 41)
+direction: [1, 0, 0]
+next_point: (116, 83, 41)
+to_point: (124, 83, 41)
+distance: 10
+distance_manhattan: 9
+
+game_state: 2055
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (14, 67, 13)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2056
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (14, 67, 14)
+direction: [0, 1, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2057
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (14, 68, 14)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2058
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (15, 68, 14)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2059
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (15, 68, 15)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2060
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (15, 68, 16)
+direction: [0, 0, 1]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
+game_state: 2061
+snake: 606cc7e8799a2a4ee37ad932c7a2a6f3de8e03f6
+head: (15, 68, 17)
+direction: [1, 0, 0]
+next_point: None
+to_point: None
+distance: 0
+distance_manhattan: 0
+
