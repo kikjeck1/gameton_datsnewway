@@ -1,32 +1,52 @@
-import random
-from source.data_objects import Snake, Vector3D, GameState, Food, SpecialFood
+from source.data_objects import Vector3D, GameState
 from typing import List, Tuple, Set
 
 import heapq
 
-def find_nearest_food(head: Tuple[int, int, int], food_list: List[Tuple[int, int, int, int]]) -> List[Tuple[int, int, int]]:
+
+def find_nearest_food(
+    head: Tuple[int, int, int], food_list: List[Tuple[int, int, int, int]]
+) -> List[Tuple[int, int, int]]:
     """Find top 3 nearest food items using Manhattan distance"""
     if not food_list:
         return []
-    distances = [(abs(head[0] - f[0]) + abs(head[1] - f[1]) + abs(head[2] - f[2]), f) for f in food_list if f[3] > 0]
+    distances = [
+        (abs(head[0] - f[0]) + abs(head[1] - f[1]) + abs(head[2] - f[2]), f)
+        for f in food_list
+        if f[3] > 0
+    ]
     distances.sort(key=lambda x: x[0])  # Sort by distance
     return [f[1][:3] for f in distances[:3]]  # Return top 3 nearest food items
 
-def is_valid_position(pos: Tuple[int, int, int], map_size: Vector3D, obstacles: Set[Tuple[int, int, int]], snake_body: Set[Tuple[int, int, int]]) -> bool:
+
+def is_valid_position(
+    pos: Tuple[int, int, int],
+    map_size: Vector3D,
+    obstacles: Set[Tuple[int, int, int]],
+    snake_body: Set[Tuple[int, int, int]],
+) -> bool:
     """Check if position is valid (within bounds and not in obstacles)"""
     x, y, z = pos
-    return (0 <= x < map_size.x and 
-            0 <= y < map_size.y and 
-            0 <= z < map_size.z and 
-            pos not in obstacles and 
-            pos not in snake_body)
+    return (
+        0 <= x < map_size.x
+        and 0 <= y < map_size.y
+        and 0 <= z < map_size.z
+        and pos not in obstacles
+        and pos not in snake_body
+    )
 
-def a_star_search(start: Tuple[int, int, int], goal: Tuple[int, int, int], 
-                obstacles: Set[Tuple[int, int, int]], snake_body: Set[Tuple[int, int, int]], 
-                map_size: Vector3D) -> List[Tuple[int, int, int]]:
+
+def a_star_search(
+    start: Tuple[int, int, int],
+    goal: Tuple[int, int, int],
+    obstacles: Set[Tuple[int, int, int]],
+    snake_body: Set[Tuple[int, int, int]],
+    map_size: Vector3D,
+) -> List[Tuple[int, int, int]]:
     """
-    Improved A* implementation with map boundaries and movement rules
+    A* implementation with map boundaries and movement rules
     """
+
     def heuristic(a: Tuple[int, int, int], b: Tuple[int, int, int]) -> int:
         """Manhattan distance between two points"""
         return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
@@ -34,9 +54,12 @@ def a_star_search(start: Tuple[int, int, int], goal: Tuple[int, int, int],
     def get_neighbors(node: Tuple[int, int, int]) -> List[Tuple[int, int, int]]:
         """Get valid neighbors respecting map boundaries and obstacles"""
         directions = [
-            (1, 0, 0), (-1, 0, 0),
-            (0, 1, 0), (0, -1, 0),
-            (0, 0, 1), (0, 0, -1)
+            (1, 0, 0),
+            (-1, 0, 0),
+            (0, 1, 0),
+            (0, -1, 0),
+            (0, 0, 1),
+            (0, 0, -1),
         ]
         neighbors = []
         for dx, dy, dz in directions:
@@ -55,10 +78,10 @@ def a_star_search(start: Tuple[int, int, int], goal: Tuple[int, int, int],
 
     while open_set:
         current_f, current = heapq.heappop(open_set)
-        
+
         if current in closed_set:
             continue
-            
+
         closed_set.add(current)
 
         if current == goal:
@@ -76,58 +99,65 @@ def a_star_search(start: Tuple[int, int, int], goal: Tuple[int, int, int],
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
                 g_score[neighbor] = tentative_g_score
-                f_score[neighbor] = tentative_g_score + heuristic(neighbor, goal)
-                heapq.heappush(open_set, (f_score[neighbor], neighbor))
+                f = tentative_g_score + heuristic(neighbor, goal)
+                f_score[neighbor] = f
+                heapq.heappush(open_set, (f, neighbor))
 
     return []
 
+
 def get_next_state_from_game_state(game_state: GameState) -> dict:
     """Calculate next moves for all snakes"""
-    snake_moves = {'snakes': []}
-    
+    snake_moves = {"snakes": []}
+
     # Collect obstacles
     obstacles = {(fence.x, fence.y, fence.z) for fence in game_state.fences}
-    for enemy in game_state.enemies:
-        if enemy.status == "alive":
-            obstacles.update((segment.x, segment.y, segment.z) for segment in enemy.geometry)
-    for snake in game_state.snakes:
+
+    # Добавляем всех змей (и своих, и чужих) в препятствия
+    all_snakes = game_state.enemies + game_state.snakes
+    for snake in all_snakes:
         if snake.status == "alive":
-            obstacles.update((segment.x, segment.y, segment.z) for segment in snake.geometry)
-    
+            # Добавляем все сегменты кроме последнего, так как он освободится при движении
+            obstacles.update(
+                (segment.x, segment.y, segment.z)
+                for segment in snake.geometry[:-1]  # TODO: add more complex logic
+            )
+
     # Process each snake
     for snake in game_state.snakes:
         if snake.status == "dead":
-            snake_moves['snakes'].append({
-                "id": snake.id,
-                "direction": [0, 0, 0]
-            })
+            snake_moves["snakes"].append({"id": snake.id, "direction": [0, 0, 0]})
             continue
-        
+
         # Get snake head and body
         head = (snake.geometry[0].x, snake.geometry[0].y, snake.geometry[0].z)
-        snake_body = {(segment.x, segment.y, segment.z) for segment in snake.geometry[1:]}
-        
+        snake_body = {
+            (segment.x, segment.y, segment.z) for segment in snake.geometry[1:]
+        }
+
         # Collect and find nearest food
         all_food = [(food.x, food.y, food.z, food.points) for food in game_state.food]
         # all_food.extend((food.x, food.y, food.z) for food in game_state.specialFood)
         nearest_food = find_nearest_food(head, all_food)
-        
+
         # Find best path to nearest food
         best_path = None
         for food_pos in nearest_food:
-            path = a_star_search(head, food_pos, obstacles, snake_body, game_state.mapSize)
+            path = a_star_search(
+                head, food_pos, obstacles, snake_body, game_state.mapSize
+            )
             if path and (best_path is None or len(path) < len(best_path)):
                 best_path = path
                 if len(path) <= 3:  # Early exit if very close food found
                     break
-        
+
         # Calculate direction
         if best_path and len(best_path) > 1:
             next_pos = best_path[1]
             direction = [
                 next_pos[0] - head[0],
                 next_pos[1] - head[1],
-                next_pos[2] - head[2]
+                next_pos[2] - head[2],
             ]
         else:
             # If no path found, continue in current direction if safe
@@ -135,23 +165,33 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
             next_pos = (
                 head[0] + current_dir[0],
                 head[1] + current_dir[1],
-                head[2] + current_dir[2]
+                head[2] + current_dir[2],
             )
             if is_valid_position(next_pos, game_state.mapSize, obstacles, snake_body):
                 direction = current_dir
             else:
                 # Try to find any safe direction
-                for test_dir in [(1,0,0), (-1,0,0), (0,1,0), (0,-1,0), (0,0,1), (0,0,-1)]:
-                    test_pos = (head[0] + test_dir[0], head[1] + test_dir[1], head[2] + test_dir[2])
-                    if is_valid_position(test_pos, game_state.mapSize, obstacles, snake_body):
+                for test_dir in [
+                    (1, 0, 0),
+                    (-1, 0, 0),
+                    (0, 1, 0),
+                    (0, -1, 0),
+                    (0, 0, 1),
+                    (0, 0, -1),
+                ]:
+                    test_pos = (
+                        head[0] + test_dir[0],
+                        head[1] + test_dir[1],
+                        head[2] + test_dir[2],
+                    )
+                    if is_valid_position(
+                        test_pos, game_state.mapSize, obstacles, snake_body
+                    ):
                         direction = list(test_dir)
                         break
                 else:
                     direction = [0, 0, 0]  # No safe direction found
-        
-        snake_moves['snakes'].append({
-            "id": snake.id,
-            "direction": direction
-        })
-    
+
+        snake_moves["snakes"].append({"id": snake.id, "direction": direction})
+
     return snake_moves

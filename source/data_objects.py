@@ -1,11 +1,13 @@
 from dataclasses import dataclass
 from typing import List, Tuple
 
+
 @dataclass
 class Vector3D:
     x: float
     y: float
     z: float
+
 
 @dataclass
 class Food:
@@ -14,11 +16,13 @@ class Food:
     z: float
     points: int
 
+
 @dataclass
 class SpecialFood:
     x: float
     y: float
     z: float
+
 
 @dataclass
 class Snake:
@@ -30,11 +34,13 @@ class Snake:
     status: str  # 'dead' or 'alive'
     reviveRemainMs: int
 
+
 @dataclass
 class EnemySnake:
     geometry: List[Vector3D]  # First element is head
     status: str  # 'dead' or 'alive'
     kills: int
+
 
 @dataclass
 class GameState:
@@ -51,6 +57,7 @@ class GameState:
     reviveTimeoutSec: int  # constant time for snake revival
     errors: List[str]
 
+
 @dataclass
 class GameInfo:
     gameName: str
@@ -59,8 +66,4 @@ class GameInfo:
 
     @classmethod
     def from_dict(cls, data: dict):
-        return cls(
-            gameName=data['gameName'],
-            now=data['now'],
-            turn=data['turn']
-        )
+        return cls(gameName=data["gameName"], now=data["now"], turn=data["turn"])
