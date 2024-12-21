@@ -203,12 +203,12 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
             # Check if any enemy head is closer or equally close
 
             for enemy_head in enemy_heads:
-                if manhattan_distance(enemy_head, food_pos) <= distance_to_snake:
+                if manhattan_distance(enemy_head, food_pos) + 3 < distance_to_snake:
                     break
             else:
                 valid_food.append(f)
 
-        nearest_food = find_nearest_food(head, valid_food, top_k=5)
+        nearest_food = find_nearest_food(head, valid_food, top_k=15)
 
         # Find best path to nearest food
         print("finding path")
@@ -222,6 +222,7 @@ def get_next_state_from_game_state(game_state: GameState) -> dict:
             if not path:
                 continue
             scr = score(len(path) - 1, food[-1])
+            print(food, scr, path)
 
             if path and (best_path is None or scr > best_scr):
                 best_path = path
