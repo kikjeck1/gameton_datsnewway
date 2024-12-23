@@ -14,7 +14,7 @@ from source.utils import parse_game_state
 # from source.mover import get_next
 from source.mover import get_next_state_from_game_state
 
-token = "5bcfb855-b4bc-4f27-a1ed-acee9e238b79"
+token = "YOUR TOKEN"
 
 
 def measure_execution_time(func_name):
